@@ -196,18 +196,44 @@ layout: default
 }
 
 .post-content code {
-  background-color: #f8f9fa;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-  font-family: monospace;
+  font-family: 'Monaco', 'Consolas', monospace;
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
 }
 
 .post-content pre {
-  background-color: #f8f9fa;
-  padding: 1em;
-  border-radius: 5px;
+  background-color: #0d1117;  /* GitHub Dark theme background */
+  color: #000000;  /* Black text */
+  padding: 1.5em;
+  border-radius: 8px;
   overflow-x: auto;
   margin: 1.5em 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  font-family: 'Monaco', 'Consolas', monospace;
+}
+
+.post-content pre code {
+  background-color: transparent;
+  padding: 0;
+  color: #000000;  /* Black text */
+}
+
+/* Update syntax highlighting colors */
+.post-content .bash-prompt {
+  color: #000000;  /* Black for prompts */
+}
+
+.post-content .bash-comment {
+  color: #666666;  /* Dark gray for comments */
+}
+
+.post-content .bash-command {
+  color: #000000;  /* Black for commands */
+}
+
+.post-content .bash-output {
+  color: #333333;  /* Dark gray for command output */
 }
 
 .post-content blockquote {

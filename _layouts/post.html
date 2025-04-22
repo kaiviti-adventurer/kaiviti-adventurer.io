@@ -57,6 +57,50 @@ layout: default
     </div>
   </div>
 
+  <!-- Post Reactions -->
+  <div class="post-reactions">
+    <h3>React to this post</h3>
+    <div class="reaction-buttons">
+      <button class="reaction-button" data-reaction="👍" onclick="react(this)">
+        <span class="emoji">👍</span>
+        <span class="count">0</span>
+      </button>
+      <button class="reaction-button" data-reaction="❤️" onclick="react(this)">
+        <span class="emoji">❤️</span>
+        <span class="count">0</span>
+      </button>
+      <button class="reaction-button" data-reaction="🎉" onclick="react(this)">
+        <span class="emoji">🎉</span>
+        <span class="count">0</span>
+      </button>
+      <button class="reaction-button" data-reaction="🤔" onclick="react(this)">
+        <span class="emoji">🤔</span>
+        <span class="count">0</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Comments Section -->
+  <div class="post-comments">
+    <h3>Comments</h3>
+    <script src="https://giscus.app/client.js"
+        data-repo="{{ site.github_username }}/{{ site.github_username }}.github.io"
+        data-repo-id="[your-repo-id]"
+        data-category="Comments"
+        data-category-id="[your-category-id]"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+    </script>
+  </div>
+
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
 
@@ -228,6 +272,60 @@ layout: default
   opacity: 0.9;
 }
 
+.post-reactions {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid #eee;
+}
+
+.post-reactions h3 {
+  color: #232F3E;
+  margin-bottom: 1em;
+}
+
+.reaction-buttons {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.reaction-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 1em;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reaction-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.reaction-button .emoji {
+  font-size: 1.2em;
+}
+
+.reaction-button .count {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.post-comments {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid #eee;
+}
+
+.post-comments h3 {
+  color: #232F3E;
+  margin-bottom: 1em;
+}
+
 @media screen and (max-width: 800px) {
   .post {
     padding: 1em;
@@ -240,5 +338,63 @@ layout: default
   .share-buttons {
     flex-direction: column;
   }
+  
+  .reaction-buttons {
+    justify-content: center;
+  }
 }
-</style> 
+</style>
+
+<script>
+function react(button) {
+  // Get current count
+  const countSpan = button.querySelector('.count');
+  let count = parseInt(countSpan.textContent);
+  
+  // Toggle reaction
+  if (button.classList.contains('reacted')) {
+    count--;
+    button.classList.remove('reacted');
+  } else {
+    count++;
+    button.classList.add('reacted');
+  }
+  
+  // Update count
+  countSpan.textContent = count;
+  
+  // Here you would typically make an API call to store the reaction
+  // For now, we're just doing client-side updates
+  
+  // Save to localStorage to persist the state
+  const postId = window.location.pathname;
+  const reaction = button.dataset.reaction;
+  const reactions = JSON.parse(localStorage.getItem('reactions') || '{}');
+  
+  if (!reactions[postId]) {
+    reactions[postId] = {};
+  }
+  
+  reactions[postId][reaction] = button.classList.contains('reacted');
+  localStorage.setItem('reactions', JSON.stringify(reactions));
+}
+
+// Load saved reactions on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const postId = window.location.pathname;
+  const reactions = JSON.parse(localStorage.getItem('reactions') || '{}');
+  
+  if (reactions[postId]) {
+    Object.entries(reactions[postId]).forEach(([reaction, reacted]) => {
+      if (reacted) {
+        const button = document.querySelector(`[data-reaction="${reaction}"]`);
+        if (button) {
+          button.classList.add('reacted');
+          const countSpan = button.querySelector('.count');
+          countSpan.textContent = '1';
+        }
+      }
+    });
+  }
+});
+</script> 

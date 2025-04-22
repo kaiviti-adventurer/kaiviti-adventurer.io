@@ -23,7 +23,7 @@ email: kaivitiadventurer@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Join me on my adventures through technology and travel. From coding to exploring new places, I share my experiences, tips, and stories about tech and travel.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.kaviti-adventurer.com" # the base hostname & protocol for your site
 twitter_username: kaiviti-adventurer
 github_username: kaiviti-adventurer
 

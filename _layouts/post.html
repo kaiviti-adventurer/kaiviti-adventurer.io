@@ -1,0 +1,244 @@
+---
+layout: default
+---
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}
+    </div>
+    
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    
+    {% if page.categories %}
+      <div class="post-categories">
+        {% for category in page.categories %}
+          <span class="category-badge {{ category }}">{{ category }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </header>
+
+  {% if page.image %}
+    <div class="post-image">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="featured-image">
+    </div>
+  {% endif %}
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% if page.tags %}
+    <div class="post-tags">
+      {% for tag in page.tags %}
+        <span class="tag">#{{ tag }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <div class="post-share">
+    <h3>Share this post</h3>
+    <div class="share-buttons">
+      <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ page.url | url_encode }}" target="_blank" class="share-button twitter">
+        <svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#twitter' | relative_url }}"></use></svg>
+        Twitter
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url | url_encode }}" target="_blank" class="share-button facebook">
+        <svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#facebook' | relative_url }}"></use></svg>
+        Facebook
+      </a>
+    </div>
+  </div>
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
+
+<style>
+.post {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.post-header {
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.post-meta {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 1em;
+}
+
+.post-title {
+  color: #232F3E;  /* Amazon Blue */
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+.post-categories {
+  margin: 1em 0;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 12px;
+  font-size: 0.8em;
+  margin-right: 0.5em;
+  color: white;
+}
+
+.category-badge.tech {
+  background-color: #232F3E;  /* Amazon Blue */
+}
+
+.category-badge.places {
+  background-color: #FF9900;  /* Amazon Ember */
+}
+
+.post-image {
+  margin: 2em 0;
+  text-align: center;
+}
+
+.featured-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.post-content {
+  line-height: 1.8;
+  font-size: 1.1em;
+}
+
+.post-content h2 {
+  color: #232F3E;  /* Amazon Blue */
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.post-content h3 {
+  color: #34495e;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.post-content p {
+  margin-bottom: 1.5em;
+}
+
+.post-content ul, .post-content ol {
+  margin-bottom: 1.5em;
+  padding-left: 1.5em;
+}
+
+.post-content li {
+  margin-bottom: 0.5em;
+}
+
+.post-content code {
+  background-color: #f8f9fa;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.post-content pre {
+  background-color: #f8f9fa;
+  padding: 1em;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+
+.post-content blockquote {
+  border-left: 4px solid #FF9900;  /* Amazon Ember */
+  padding-left: 1em;
+  margin: 1.5em 0;
+  color: #666;
+}
+
+.post-tags {
+  margin: 2em 0;
+  padding-top: 1em;
+  border-top: 1px solid #eee;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  background-color: #f2f2f2;
+  color: #666;
+  border-radius: 12px;
+  font-size: 0.8em;
+  margin-right: 0.5em;
+}
+
+.post-share {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid #eee;
+}
+
+.post-share h3 {
+  color: #232F3E;  /* Amazon Blue */
+  margin-bottom: 1em;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 1em;
+}
+
+.share-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.share-button.twitter {
+  background-color: #1DA1F2;
+}
+
+.share-button.facebook {
+  background-color: #4267B2;
+}
+
+.share-button:hover {
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 800px) {
+  .post {
+    padding: 1em;
+  }
+  
+  .post-title {
+    font-size: 2em;
+  }
+  
+  .share-buttons {
+    flex-direction: column;
+  }
+}
+</style> 

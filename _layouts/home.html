@@ -1,0 +1,304 @@
+---
+layout: default
+---
+
+<div class="home">
+  <div class="hero" style="background-image: linear-gradient(rgba(35, 47, 62, 0.8), rgba(35, 47, 62, 0.8)), url('/assets/images/featured/fiji_beach.jpeg'); background-size: cover; background-position: center;">
+    <h1 class="page-heading">{{ site.title | escape }}</h1>
+    <p class="page-description">{{ site.description | escape }}</p>
+  </div>
+
+  <div class="featured-posts">
+    <h2>Featured Posts</h2>
+    <div class="post-grid">
+      {% for post in site.posts limit:3 %}
+        <article class="post-card">
+          {% if post.image %}
+            <div class="post-card-image">
+              <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+            </div>
+          {% endif %}
+          <div class="post-card-content">
+            <div class="post-card-meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+              {% if post.categories %}
+                <span class="post-card-category">{{ post.categories[0] }}</span>
+              {% endif %}
+            </div>
+            <h3 class="post-card-title">
+              <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            </h3>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="category-sections">
+    <section class="category-section">
+      <h2>Tech Posts</h2>
+      <div class="post-list">
+        {% for post in site.categories.tech limit:3 %}
+          <article class="post-preview">
+            <h3>
+              <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            </h3>
+            <div class="post-meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            </div>
+            <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+          </article>
+        {% endfor %}
+      </div>
+      <a href="/tech/" class="view-all">View all tech posts</a>
+    </section>
+
+    <section class="category-section">
+      <h2>Travel Posts</h2>
+      <div class="post-list">
+        {% for post in site.categories.places limit:3 %}
+          <article class="post-preview">
+            <h3>
+              <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            </h3>
+            <div class="post-meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+            </div>
+            <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+          </article>
+        {% endfor %}
+      </div>
+      <a href="/places/" class="view-all">View all travel posts</a>
+    </section>
+  </div>
+</div>
+
+<style>
+.home {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4em;
+  padding: 6em 0;
+  color: white;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.page-heading {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.page-description {
+  font-size: 1.2em;
+  max-width: 600px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.featured-posts {
+  margin-bottom: 4em;
+}
+
+.featured-posts h2 {
+  color: #232F3E;  /* Amazon Blue */
+  font-size: 2em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+}
+
+.post-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+}
+
+.post-card-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.post-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-card-content {
+  padding: 1.5em;
+}
+
+.post-card-meta {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+.post-card-category {
+  color: #FF9900;  /* Amazon Ember */
+  font-weight: 500;
+}
+
+.post-card-title {
+  margin: 0 0 0.5em;
+  font-size: 1.5em;
+}
+
+.post-card-title a {
+  color: #232F3E;  /* Amazon Blue */
+  text-decoration: none;
+}
+
+.post-card-title a:hover {
+  color: #FF9900;  /* Amazon Ember */
+}
+
+.post-card-excerpt {
+  color: #666;
+  margin-bottom: 1em;
+}
+
+.read-more {
+  color: #0066C0;  /* Amazon Link Blue */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.read-more:hover {
+  color: #FF9900;  /* Amazon Ember */
+}
+
+.category-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+}
+
+.category-section {
+  background: white;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.category-section h2 {
+  color: #232F3E;  /* Amazon Blue */
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid #FF9900;  /* Amazon Ember */
+  font-weight: 600;
+}
+
+.post-list {
+  margin-bottom: 1.5em;
+}
+
+.post-preview {
+  margin-bottom: 1.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid #eee;
+}
+
+.post-preview:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.post-preview h3 {
+  margin: 0 0 0.5em;
+  font-size: 1.2em;
+}
+
+.post-preview h3 a {
+  color: #232F3E;  /* Amazon Blue */
+  text-decoration: none;
+}
+
+.post-preview h3 a:hover {
+  color: #FF9900;  /* Amazon Ember */
+}
+
+.post-preview .post-meta {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+.view-all {
+  display: inline-block;
+  padding: 0.8em 1.5em;
+  background-color: #232F3E;  /* Amazon Blue */
+  color: #FF9900;  /* Amazon Ember */
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.95em;
+  transition: all 0.3s ease;
+  border: 1px solid #FF9900;  /* Amazon Ember border */
+}
+
+.view-all:hover {
+  background-color: #FF9900;  /* Amazon Ember */
+  color: #232F3E;  /* Amazon Blue */
+  border-color: #232F3E;
+}
+
+@media screen and (max-width: 800px) {
+  .home {
+    padding: 1em;
+  }
+  
+  .hero {
+    padding: 2em 1em;
+  }
+  
+  .page-heading {
+    font-size: 2em;
+  }
+  
+  .post-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-sections {
+    grid-template-columns: 1fr;
+  }
+}
+</style> 

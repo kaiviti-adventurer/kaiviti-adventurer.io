@@ -5,6 +5,8 @@ ai-generated:
   retriever_dog.jpeg: "Golden Retriever Portrait"
   boyrobotwinter.jpeg: "Robot Boy in Winter"
   polynesian_woman1.jpeg: "Polynesian Woman Portrait"
+  colourful_parrot.jpeg: "Colourful vibrant Parrot"
+  dolphin.jpeg: "Dolphin in the Ocean"
 
 places:
   # Add your place images here when you have them

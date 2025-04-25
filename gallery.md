@@ -4,8 +4,6 @@ title: Photo Gallery
 permalink: /gallery/
 ---
 
-# Photo Gallery
-
 Explore our collection of images across different categories.
 
 ## AI Generated Art

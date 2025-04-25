@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "20 Essential Linux Commands Every Junior DevOps Engineer Should Know"
-date: 2024-04-21
+date: 2024-04-22
 categories: tech
 tags: [linux, devops, commands, terminal, basics]
 image: /assets/images/tech/linux-commands.jpeg
@@ -261,6 +261,44 @@ This post covered the essential Linux commands for DevOps beginners. In our next
 - Best practices for DevOps automation
 
 Stay tuned for more DevOps tutorials and tips!
+
+## Additional Resources
+
+To help you further master Linux commands, here are some excellent video tutorials:
+
+### 1. Linux Command Line Basics
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IVquJh3DXUA" title="Linux Command Line Basics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+### 2. Advanced Linux Commands for DevOps
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZtqBQ68cfJc" title="Advanced Linux Commands for DevOps" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+### 3. Linux File System and Permissions
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HIXzJ3Rz9po" title="Linux File System and Permissions" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<style>
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
 
 ---
 

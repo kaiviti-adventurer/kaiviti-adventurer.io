@@ -132,6 +132,44 @@ echo "Backup created: $backup_file"
 4. Test your scripts thoroughly
 5. Handle errors appropriately
 
+## Additional Resources
+
+To help you further master Bash scripting, here are some excellent video tutorials:
+
+### 1. Bash Scripting for Beginners
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tK9Oc6AEnR4" title="Bash Scripting for Beginners" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+### 2. Advanced Bash Scripting
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uI-xHPk4tO0" title="Advanced Bash Scripting" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+### 3. Bash Scripting Best Practices
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SPwyp2NG-bE" title="Bash Scripting Best Practices" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<style>
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+
 ## Conclusion
 
 Bash scripting is a valuable skill that can help you automate tasks and improve your productivity. Start with simple scripts and gradually build more complex ones as you become comfortable with the basics.
@@ -139,3 +177,7 @@ Bash scripting is a valuable skill that can help you automate tasks and improve 
 Remember: Practice makes perfect! Try creating your own scripts and experiment with different commands and structures.
 
 Happy scripting! 🚀 
+
+## Share Your Thoughts!
+
+If you found this guide helpful, please show your support by clicking the reaction buttons below (👍, ❤️, or 🎉). Your feedback helps me create better content!

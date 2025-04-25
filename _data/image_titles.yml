@@ -1,0 +1,15 @@
+ai-generated:
+  sea_heron.jpeg: "Majestic Sea Heron"
+  eagle.jpeg: "Soaring Eagle"
+  panda_snow.jpeg: "Panda in Winter Wonderland"
+  retriever_dog.jpeg: "Golden Retriever Portrait"
+  boyrobotwinter.jpeg: "Robot Boy in Winter"
+  polynesian_woman1.jpeg: "Polynesian Woman Portrait"
+
+places:
+  # Add your place images here when you have them
+  # example: beach_sunset.jpeg: "Tropical Sunset"
+
+tech:
+  # Add your tech images here when you have them
+  # example: coding_setup.jpeg: "Developer Workspace" 

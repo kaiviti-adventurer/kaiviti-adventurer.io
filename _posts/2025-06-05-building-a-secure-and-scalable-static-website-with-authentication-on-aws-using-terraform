@@ -5,8 +5,9 @@ date: 2025-06-05
 categories: tech
 tags: [aws, terraform, static-website, authentication, security, scalability]
 author: Etonia Suraki
+image: /images/s3_hosted.jpeg
 ---
-
+                                                                                                                                                                        
 In this blog post, I'll walk you through a public repository that deploys a secure and scalable React single-page application (SPA) on AWS, leveraging services like [Amazon S3](https://aws.amazon.com/s3/), [Amazon CloudFront](https://aws.amazon.com/cloudfront/), and [Amazon Cognito](https://aws.amazon.com/cognito/), all orchestrated with [Terraform](https://developer.hashicorp.com/terraform). This solution highlights a robust approach to front-end deployment, incorporating automation, security, and performance best practices.
 
 The Solution Architecture

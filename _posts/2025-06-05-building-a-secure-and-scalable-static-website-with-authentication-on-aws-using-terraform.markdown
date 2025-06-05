@@ -12,7 +12,7 @@ In this blog post, I'll walk you through a public repository that deploys a secu
 
 ## The Solution Architecture
 
-![Architecture Diagram](/assets/images/tech/s3-cloudfront-architecture.jpeg)
+![Architecture Diagram](/assets/images/tech/s3-architecture.jpeg)
 
 The architecture of this solution is designed for efficiency, scalability, and security:
 

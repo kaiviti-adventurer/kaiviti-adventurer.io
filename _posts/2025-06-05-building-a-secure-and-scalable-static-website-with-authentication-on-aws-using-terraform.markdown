@@ -13,7 +13,7 @@ In this blog post, I'll walk you through a public repository that deploys a secu
 ## The Solution Architecture
 The architecture of this solution is designed for efficiency, scalability, and security:
 
-![architecture](/images/s3-cloudfront-cognito-architecture.png)
+![architecture](../images/s3-cloudfront-architecture.png)
 
 **React Application:** The front-end is a modern React application built with Vite, React, and Tailwind CSS, providing a fast and responsive user experience.
 **Amazon S3 for Static Hosting:** The compiled React application is hosted as a static website on an Amazon S3 bucket. S3 provides highly durable, scalable, and cost-effective object storage, ideal for static content.
@@ -46,4 +46,4 @@ This project showcases a range of valuable skills and technologies:
 This project serves as a practical example of deploying a secure, scalable, and automated single-page application on AWS. By leveraging Infrastructure as Code with Terraform and integrating key AWS services, the solution provides a robust foundation for modern web applications. Feel free to explore the repository, try it out, and adapt it for your own projects.
 You can find the complete code and detailed instructions in the GitHub repository linked below.
 
-GitHub Repository: [https://github.com/kaiviti-adventurer/tf-aws-s3-cloudfront-cognito-website]
+GitHub Repository: [kaiviti-adventurer](https://github.com/kaiviti-adventurer/tf-aws-s3-cloudfront-cognito-website)
